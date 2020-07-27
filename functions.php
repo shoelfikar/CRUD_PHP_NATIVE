@@ -11,6 +11,7 @@ $notValid = '';
 $toBig = '';
 $registred = '';
 $invailid = '';
+$jumlahHal = 0;
 
 
 
@@ -186,6 +187,20 @@ function login($data) {
        $invailid = 'Email anda belum terdaftar,Silahkan registrasi!';
        return false;
     }
+}
+
+
+
+function pagination($data) {
+    global $jumlahHal;
+    $jumlahDataPerHalaman = 2;
+    $jumlahData = count(query("SELECT * FROM kary"));
+    $jumlahHal = ceil($jumlahData / $jumlahDataPerHalaman);
+    $halAktif = $data;
+    $awalData = ($jumlahDataPerHalaman * $halAktif) - $jumlahDataPerHalaman;
+    $result = query("SELECT * FROM kary LIMIT $awalData, $jumlahDataPerHalaman");
+    return $result;
+
 }
 
 
