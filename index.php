@@ -3,7 +3,7 @@
 session_start();
 
 if (!$_SESSION["login"]) {
-  header("Location : login.php");
+  header("Location: login.php");
   exit;
 }
 
@@ -47,6 +47,8 @@ if ( isset($_POST["search"])) {
     </div>
     <?php endif; ?>
     <a href="addKaryawan.php" class="btn btn-primary mb-4">Add Karyawan</a>
+    <a href="loguot.php" class="btn btn-danger mb-4">Logout</a>
+
 
         <form class="form-inline" action="" method="post">
             <label class="sr-only" for="keyword">Name</label>
