@@ -10,7 +10,7 @@ $noFile = '';
 $notValid = '';
 $toBig = '';
 $registred = '';
-
+$invailid = '';
 
 
 
@@ -160,6 +160,27 @@ function registrasi($data) {
 }
 
 
+
+function login($data) {
+    global $conn;
+    global $invailid;
+    $email = $data["email"];
+    $password = $data["password"];
+
+    $result = mysqli_query($conn, "SELECT * FROM users WHERE email = '$email'");
+
+    if(mysqli_num_rows($result) === 1) {
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            return true;
+        }else {
+            return false;
+        }
+    }else {
+       $invailid = 'Email anda belum terdaftar,Silahkan registrasi!';
+       return false;
+    }
+}
 
 
 ?>

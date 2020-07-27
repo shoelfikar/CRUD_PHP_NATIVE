@@ -2,12 +2,16 @@
 
 require 'functions.php';
 
-if (isset ($_POST["register"]) ) {
+if (isset ($_POST["login"]) ) {
 
-  if (registrasi($_POST) > 0) {
-    header('Location: login.php');
+  if (login($_POST)) {
+    header('Location: index.php');
   }else{
-    $error = true;
+    if ($invailid !== '') {
+        $message = $invailid;
+    }else {
+        $error = true;
+    }
   }
 }
 
@@ -54,6 +58,11 @@ if (isset ($_POST["register"]) ) {
           <div class="row">
             <h3 class="text-center form-regis">Login</h3>
             <div class="col-md-4">
+                <?php if (isset($message)) : ?>
+                    <div class="alert alert-danger" role="alert">
+                    <?= $message; ?>
+                    </div>
+                <?php endif; ?>
               <div class="card mb-5">
                 <div class="card-body">
                   <form action="" method="post">
@@ -67,7 +76,7 @@ if (isset ($_POST["register"]) ) {
                       <input type="password" class="form-control" id="password" aria-describedby="emailHelp"
                       name="password">
                       <?php if (isset ($error) ) : ?>
-                        <small class="text-danger">Konfirmasi Password Salah!</small>
+                        <small class="text-danger">Password yang anda masukkan salah!</small>
                       <?php endif; ?>
                     </div>
                     <button type="submit" class="btn btn-outline-primary" name="login">Login</button>
