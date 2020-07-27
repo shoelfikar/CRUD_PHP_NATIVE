@@ -2,6 +2,12 @@
 
 session_start();
 
+if (isset($_COOKIE["login"])) {
+  if ($_COOKIE["login"] == 'true') {
+    $_SESSION["login"] = true;
+  }
+}
+
 if (isset($_SESSION["login"])) {
     header("Location: index.php");
     exit;
@@ -12,7 +18,6 @@ require 'functions.php';
 if (isset ($_POST["login"]) ) {
 
   if (login($_POST)) {
-    $_SESSION["login"] = true;
     header('Location: index.php');
   }else{
     if ($invailid !== '') {
@@ -86,6 +91,10 @@ if (isset ($_POST["login"]) ) {
                       <?php if (isset ($error) ) : ?>
                         <small class="text-danger">Password yang anda masukkan salah!</small>
                       <?php endif; ?>
+                    </div>
+                    <div class="form-group form-check">
+                      <input type="checkbox" class="form-check-input" id="remember" name="remember">
+                      <label class="form-check-label" for="remember">Check me out</label>
                     </div>
                     <button type="submit" class="btn btn-outline-primary" name="login">Login</button>
                     <button type="submit" class="btn btn-outline-primary" name="register">Register</button>

@@ -172,6 +172,11 @@ function login($data) {
     if(mysqli_num_rows($result) === 1) {
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row["password"])) {
+            $_SESSION["login"] = true;
+
+            if (isset($data["remember"])) {
+                setcookie('login', 'true', time() + 60 * 2);
+            }
             return true;
         }else {
             return false;
