@@ -46,31 +46,8 @@ if (isset ($_POST["login"]) ) {
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="css/login.css">
     <title>Login Admin</title>
-    <style>
-      .container{
-        margin-top: 40px;
-      }
-      .cancel-btn{
-        text-decoration: none;
-        color: #fff;
-      }
-      .cancel-btn:hover{
-        text-decoration: none;
-        color: #fff;
-      }
-      .row{
-        height: 500px;
-        display:flex;
-        flex-direction: column;
-        justify-content:center;
-      }
-      .form-regis{
-        width:380px;
-        margin-bottom:20px;
-      }
-    </style>
   </head>
   <body>
         <div class="container">
@@ -82,7 +59,7 @@ if (isset ($_POST["login"]) ) {
                     <?= $message; ?>
                     </div>
                 <?php endif; ?>
-              <div class="card mb-5">
+              <div class="card text-white bg-info mb-5">
                 <div class="card-body">
                   <form action="" method="post">
                     <div class="form-group">
@@ -102,8 +79,8 @@ if (isset ($_POST["login"]) ) {
                       <input type="checkbox" class="form-check-input" id="remember" name="remember">
                       <label class="form-check-label" for="remember">Check me out</label>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary" name="login">Login</button>
-                    <button type="submit" class="btn btn-outline-primary" name="register">Register</button>
+                    <button type="submit" class="btn btn-outline-light" name="login">Login</button>
+                    <button type="submit" class="btn btn-outline-light" name="register">Register</button>
                   </form>
                 </div>
               </div>

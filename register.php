@@ -63,7 +63,7 @@ if (isset ($_POST["register"]) ) {
                   <?= $messages; ?>
                 </div>
               <?php endif; ?>
-              <div class="card mb-5">
+              <div class="card text-white bg-info mb-5">
                 <div class="card-body">
                   <form action="" method="post">
                     <div class="form-group">
@@ -89,8 +89,8 @@ if (isset ($_POST["register"]) ) {
                         <small class="text-danger">Konfirmasi Password Salah!</small>
                       <?php endif; ?>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary" name="register">Register</button>
-                    <button type="submit" class="btn btn-outline-primary" name="login">Login</button>
+                    <button type="submit" class="btn btn-outline-light" name="register">Register</button>
+                    <button type="submit" class="btn btn-outline-light" name="login">Login</button>
                   </form>
                 </div>
               </div>

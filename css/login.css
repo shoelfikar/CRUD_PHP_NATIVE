@@ -1,0 +1,21 @@
+.container{
+    margin-top: 40px;
+  }
+  .cancel-btn{
+    text-decoration: none;
+    color: #fff;
+  }
+  .cancel-btn:hover{
+    text-decoration: none;
+    color: #fff;
+  }
+  .row{
+    height: 500px;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+  }
+  .form-regis{
+    width:380px;
+    margin-bottom:20px;
+  }
