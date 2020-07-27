@@ -1,11 +1,18 @@
 <?php 
-
+require 'functions.php';
 session_start();
 
-if (isset($_COOKIE["login"])) {
-  if ($_COOKIE["login"] == 'true') {
+if (isset($_COOKIE["id"]) && isset($_COOKIE["remember"])) {
+
+  $id = $_COOKIE["id"];
+  $remember = $_COOKIE["remember"];
+
+  $result = mysqli_query($conn, "SELECT username FROM users WHERE id = $id");
+  $row = mysqli_fetch_assoc($result);
+  if ($remember === hash('sha256', $row["username"])) {
     $_SESSION["login"] = true;
   }
+  
 }
 
 if (isset($_SESSION["login"])) {
@@ -13,7 +20,6 @@ if (isset($_SESSION["login"])) {
     exit;
 }
 
-require 'functions.php';
 
 if (isset ($_POST["login"]) ) {
 

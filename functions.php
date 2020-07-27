@@ -175,7 +175,8 @@ function login($data) {
             $_SESSION["login"] = true;
 
             if (isset($data["remember"])) {
-                setcookie('login', 'true', time() + 60 * 2);
+                setcookie('id', $row["id"], time() + 60 * 2);
+                setcookie('remember', hash('sha256',$row["username"]), time() + 60 * 2);
             }
             return true;
         }else {
